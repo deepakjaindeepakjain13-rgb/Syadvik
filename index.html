@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syadvik — Intelligent Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#050505;
+  --surface:#0E0E0E;
+  --border:#1A1A1A;
+  --text:#ffffff;
+  --muted:#a0a0a0;
+  --accent:#7C5CFF;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+section{
+  padding:120px 0;
+}
+
+h1{
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:800;
+  line-height:1.1;
+}
+
+h2{
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  margin-bottom:40px;
+}
+
+p{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  background:rgba(5,5,5,0.75);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+}
+
+.logo{
+  font-weight:700;
+  font-size:18px;
+}
+
+nav ul{
+  display:flex;
+  gap:40px;
+  list-style:none;
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.nav-btn{
+  background:var(--accent);
+  padding:10px 20px;
+  border-radius:25px;
+  color:white;
+  font-size:14px;
+}
+
+/* HERO */
+
+.hero{
+  padding-top:180px;
+  padding-bottom:120px;
+  text-align:center;
+  background:radial-gradient(circle at center, rgba(124,92,255,0.18), transparent 55%);
+}
+
+.hero-content{
+  max-width:900px;
+  margin:auto;
+}
+
+.hero p{
+  margin-top:20px;
+}
+
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  font-size:14px;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.primary{
+  background:var(--accent);
+  color:white;
+}
+
+.secondary{
+  border:1px solid var(--border);
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  gap:30px;
+}
+
+.grid-4{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.grid-3{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.card{
+  background:var(--surface);
+  padding:30px;
+  border-radius:28px;
+  border:1px solid var(--border);
+  transition:0.3s ease;
+}
+
+.card:hover{
+  border-color:var(--accent);
+  transform:translateY(-6px);
+}
+
+/* SPLIT */
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.mock{
+  background:var(--surface);
+  border-radius:28px;
+  border:1px solid var(--border);
+  padding:30px;
+}
+
+.mock div{
+  padding:12px;
+  background:#121212;
+  border-radius:12px;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+}
+
+.contact-box{
+  max-width:600px;
+  margin:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:50px;
+  border-radius:28px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+input, textarea{
+  background:#111;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:14px;
+  color:white;
+  font-size:14px;
+}
+
+input:focus, textarea:focus{
+  border-color:var(--accent);
+  outline:none;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--border);
+  padding:60px 0;
+  color:var(--muted);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+
+.footer-title{
+  color:white;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+small{
+  display:block;
+  text-align:center;
+  margin-top:40px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1024px){
+
+  .grid-4{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .grid-3{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .split{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:80px 0;
+  }
+
+  nav ul{
+    display:none;
+  }
+
+  .hero{
+    padding-top:140px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .grid-4,
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+
+  .contact-box{
+    padding:30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Syadvik</div>
+  <ul>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Book a Call</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content container">
+    <h1>Intelligent Automation for Modern Businesses.</h1>
+    <p>We architect and deploy scalable AI systems, workflow automation, and intelligent infrastructure built for precision and long-term growth.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn primary">Get in Touch</a>
+      <a href="#capabilities" class="btn secondary">View Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="container">
+    <h2>Core Capabilities</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>AI Workflow Automation</h3><p>End-to-end automation of complex business processes.</p></div>
+      <div class="card"><h3>Custom AI Systems</h3><p>Domain-specific AI architectures.</p></div>
+      <div class="card"><h3>Infrastructure Engineering</h3><p>Cloud systems & data pipelines.</p></div>
+      <div class="card"><h3>Process Optimization</h3><p>Operational redesign & efficiency.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div class="mock">
+      <div>Lead Intake — Complete</div>
+      <div>CRM Sync — Running</div>
+      <div>Notification Dispatch — Queued</div>
+      <div>Reporting Pipeline — Active</div>
+    </div>
+    <div>
+      <h2>Automate repetitive tasks. Reclaim operational capacity.</h2>
+      <p>Replace manual workflows with structured automation systems integrated into your infrastructure.</p>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <h2>Engineering Process</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>Discover</h3></div>
+      <div class="card"><h3>Architect</h3></div>
+      <div class="card"><h3>Build</h3></div>
+      <div class="card"><h3>Optimize</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="container">
+    <h2>Industries</h2>
+    <div class="grid grid-3">
+      <div class="card">E-commerce</div>
+      <div class="card">Agencies</div>
+      <div class="card">Startups</div>
+      <div class="card">Education</div>
+      <div class="card">Manufacturing</div>
+      <div class="card">Professional Services</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Start a Conversation</h2>
+    <div class="contact-box">
+      <form id="whatsappForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Work Email" required>
+        <textarea id="details" rows="4" placeholder="Describe your workflows..." required></textarea>
+        <button type="submit" class="btn primary">Book Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-title">Syadvik</div>
+      <p>Founder-led AI engineering firm.</p>
+    </div>
+    <div>
+      <div class="footer-title">Services</div>
+      <p>Automation</p>
+      <p>Custom AI</p>
+      <p>Infrastructure</p>
+    </div>
+    <div>
+      <div class="footer-title">Company</div>
+      <p>Process</p>
+      <p>Industries</p>
+      <p>Contact</p>
+    </div>
+  </div>
+  <small>© 2026 Syadvik. All rights reserved.</small>
+</footer>
+
+<script>
+document.getElementById("whatsappForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const details=document.getElementById("details").value;
+
+const message=`New Consultation Request - Syadvik
+
+Name: ${name}
+Email: ${email}
+
+Project Details:
+${details}`;
+
+const encoded=encodeURIComponent(message);
+window.open(`https://wa.me/917073660025?text=${encoded}`,"_blank");
+});
+</script>
+
+</body>
+</html>
